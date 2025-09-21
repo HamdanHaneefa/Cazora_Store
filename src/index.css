@@ -2,39 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Cazora E-commerce Design System - Blue-Green Theme */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 210 50% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 50% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 50% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Blue-green primary palette */
+    --primary: 186 100% 31%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 186 80% 45%;
+    --primary-dark: 186 100% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Complementary secondary colors */
+    --secondary: 195 100% 95%;
+    --secondary-foreground: 186 100% 31%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 195 50% 96%;
+    --muted-foreground: 210 25% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 195 100% 92%;
+    --accent-foreground: 186 100% 31%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 195 30% 88%;
+    --input: 195 30% 88%;
+    --ring: 186 100% 31%;
+
+    /* Cazora specific design tokens */
+    --brand-gradient: linear-gradient(135deg, hsl(186 100% 31%), hsl(195 100% 42%));
+    --hero-gradient: linear-gradient(180deg, hsl(195 100% 98%), hsl(186 20% 96%));
+    --card-shadow: 0 4px 20px -4px hsl(186 50% 31% / 0.1);
+    --hover-shadow: 0 8px 30px -6px hsl(186 50% 31% / 0.2);
+    
+    /* Animation variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -56,33 +68,40 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 210 50% 8%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 50% 12%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 50% 12%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 186 80% 50%;
+    --primary-foreground: 210 50% 8%;
+    --primary-light: 186 70% 60%;
+    --primary-dark: 186 100% 40%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 40% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 40% 15%;
+    --muted-foreground: 210 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 210 40% 18%;
+    --accent-foreground: 186 80% 50%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 210 40% 18%;
+    --input: 210 40% 18%;
+    --ring: 186 80% 50%;
+
+    --brand-gradient: linear-gradient(135deg, hsl(186 80% 50%), hsl(195 80% 60%));
+    --hero-gradient: linear-gradient(180deg, hsl(210 50% 8%), hsl(210 45% 12%));
+    --card-shadow: 0 4px 20px -4px hsl(186 50% 20% / 0.3);
+    --hover-shadow: 0 8px 30px -6px hsl(186 50% 30% / 0.4);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +119,39 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-size: 14px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .brand-gradient {
+    background: var(--brand-gradient);
+  }
+  
+  .hero-bg {
+    background: var(--hero-gradient);
+  }
+  
+  .card-elevated {
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
+  }
+  
+  .card-elevated:hover {
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
+  }
+  
+  .btn-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  .btn-bounce:hover {
+    transform: scale(1.05);
   }
 }
